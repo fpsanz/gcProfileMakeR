@@ -1,0 +1,53 @@
+## Código R:
+
+library(gcProfileMakeR)
+
+
+
+my_cas <- c("000541-05-9", "000556-67-2", "000540-97-6", "000541-02-6", "2000699-64-2")  # "-siloxanes" para excluir
+
+
+#WT
+setwd("~/Escritorio/VOC/WT")                   # mi rutas para la salida de datos y
+path <- getwd()      
+out1 <- NormalizeWithinFiles(path = path, cas2rm = my_cas, savefiles = T, minQuality = 90)
+out2 <- NormalizeBetweenFiles(data = out1, savefiles = T)
+out <- getGroups(data = out2, savefiles = TRUE, verbose = TRUE, pFreqCutoff = 0.60)  #  pFreqCutoff = 0.80
+p <- plotGroup(data = out, compoundType = "p")
+p
+###
+#LHY14
+setwd("~/Escritorio/VOC/AmLHY14/")                   # mi rutas para la salida de datos y
+path <- getwd()      
+out1 <- NormalizeWithinFiles(path = path, cas2rm = my_cas, savefiles = T)
+out2 <- NormalizeBetweenFiles(data = out1, savefiles = T)
+out <- getGroups(data = out2, savefiles = TRUE, verbose = TRUE, pFreqCutoff = 0.60)  #  pFreqCutoff = 0.80
+p <- plotGroup(data = out, compoundType = "p")
+p
+###
+#LHY26
+setwd("~/Escritorio/VOC_marta/AmLHY26/")                   # mi rutas para la salida de datos y
+path <- getwd()      
+out1 <- NormalizeWithinFiles(path = path, cas2rm = my_cas, savefiles = T)
+out2 <- NormalizeBetweenFiles(data = out1, savefiles = T)
+out <- getGroups(data = out2, savefiles = TRUE, verbose = TRUE, pFreqCutoff = 0.60)  #  pFreqCutoff = 0.80
+p <- plotGroup(data = out, compoundType = "p")
+p
+###
+#LHY27
+setwd("~/Escritorio/VOC_marta/AmLHY27/")                   # mi rutas para la salida de datos y
+path <- getwd()      
+out1 <- NormalizeWithinFiles(path = path, cas2rm = my_cas, savefiles = T)
+out2 <- NormalizeBetweenFiles(data = out1, savefiles = T)
+out <- getGroups(data = out2, savefiles = TRUE, verbose = TRUE, pFreqCutoff = 0.60)  #  pFreqCutoff = 0.80
+p <- plotGroup(data = out, compoundType = "p")
+p
+###
+# Todos juntos
+setwd("~/Escritorio/VOC/all/")                   # mi rutas para la salida de datos y
+path <- getwd()      
+out1 <- NormalizeWithinFiles(path = path, cas2rm = my_cas, savefiles = T, minQuality=80)
+out2 <- NormalizeBetweenFiles(data = out1, savefiles = T)
+out <- getGroups(data = out2, savefiles = TRUE, verbose = TRUE, pFreqCutoff = 0.60)  #  pFreqCutoff = 0.80
+p <- plotGroup(data = out, compoundType = "p")
+p

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559838649413.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2891147569",
+    "id" : "908C7637",
+    "lastKnownWriteTime" : 1526830890,
+    "last_content_update" : 1526830890,
+    "path" : "~/Escritorio/gcProfileMakeR/V222/R/NormalizeBetweenFiles.R",
+    "project_path" : "R/NormalizeBetweenFiles.R",
+    "properties" : {
+        "cursorPosition" : "158,38",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

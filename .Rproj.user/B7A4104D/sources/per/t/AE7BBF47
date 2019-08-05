@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1561040988862.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2719012029",
+    "id" : "AE7BBF47",
+    "lastKnownWriteTime" : 1561042237,
+    "last_content_update" : 1561042237,
+    "path" : "~/Escritorio/VOC/script_pruebas.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "5,0",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1559748055688.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "884529890",
+    "id" : "BDA8AC9E",
+    "lastKnownWriteTime" : 1561042370,
+    "last_content_update" : 1561042370084,
+    "path" : "~/Escritorio/gcProfileMakeR/V222/R/NormalizeWithinFiles.R",
+    "project_path" : "R/NormalizeWithinFiles.R",
+    "properties" : {
+        "cursorPosition" : "18,96",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

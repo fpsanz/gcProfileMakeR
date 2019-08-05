@@ -1,0 +1,15 @@
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V100]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V100[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V100[00m$ [K]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V100[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V100[00m$ cd ..
+]0;/home/fpsanz/Escritorio/gcProfileMakeR]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR[00m$ cd V220
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ l
+default.Rproj  DESCRIPTION  [0m[01;34minst[0m/  [01;34mman[0m/  NAMESPACE  [01;34mR[0m/
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ 
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ 
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ 
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ 
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ R CDM[K[KMD check
+Error: no packages were specified
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ R CMD check Note: break used in wrong contex t: no loop is visible [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KgcProfileMakeR
+Warning: ‘gcProfileMakeR’ is neither a file nor directory, skipping
+
+]0;/home/fpsanz/Escritorio/gcProfileMakeR/V220]0;fpsanz@pcAsus: ~/Escritorio/gcProfileMakeR/V220[01;32mfpsanz@pcAsus[00m:[01;34m~/Escritorio/gcProfileMakeR/V220[00m$ 
