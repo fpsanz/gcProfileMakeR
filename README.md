@@ -1,9 +1,4 @@
----
-output:
-  html_document: default
-  pdf_document: default
-  word_document: default
----
+
 # gcProfileMakeR: an R package for automatic classification of constitutive and non-constitutive metabolites
 
 gcProfileMakeR es una libraría escrita en R para determinar los compuestos (metabolitos) constitutivos y no constitutivos emitidos por un grupo de muestras. Emplea como entrada ficheros (en formato xls o csv) producidos por GC-MS. 
