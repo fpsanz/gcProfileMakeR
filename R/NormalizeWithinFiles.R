@@ -79,7 +79,7 @@ NormalizeWithinFiles <- function(path, type = "xls", thr = 0.2, savefiles = FALS
       df<-kk[,c(1,2,4,9,10,12)]
     } else if (type == "csv"){
       #kk <- read.csv2( file, header = TRUE, sep = ";", stringsAsFactors = FALSE)
-      kk <- read_delim(file,  delim = "\t", escape_double = FALSE, trim_ws = TRUE, col_names = TRUE)
+      kk <- readr::read_delim(file,  delim = "\t", escape_double = FALSE, trim_ws = TRUE, col_names = TRUE)
       df <- kk
     }
      
