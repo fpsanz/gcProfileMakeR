@@ -1,8 +1,7 @@
 
 # gcProfileMakeR: an R package for automatic classification of constitutive and non-constitutive metabolites
 
-gcProfileMakeR es una libraría escrita en R para determinar los compuestos (metabolitos) constitutivos y no constitutivos emitidos por un grupo de muestras. Emplea como entrada ficheros (en formato xls o csv) producidos por GC-MS. 
-
+gcProfileMakeR is an R library used to determine constitutive and non-constitutive metabolites present on a group of samples. It uses as input files in cvs or XLS format produced by Agilent Chemstation GC-MS apparatus.
 
 ## Install with devtools from R or RStudio
 
@@ -12,64 +11,64 @@ devtools::install_github("fpsanz/gcProfileMakeR")
 
 library(gcProfileMakeR)
 
-## Ejemplo de uso general
+## Example of use
 
-### Formato de los ficheros de entrada
+### Input file format
 
-En la carpeta inst/extdata/ hay tres ficheros correspondientes a tres muestras empleados para este tutorial.
+In the folder inst/extdata/ there are three files corresponding to three samples used in this tutorial.
 
-Estos ficheros en formato .xls (Figure 1) son los obtenidos directamente por GC-MS Agilent¿¿?¿? (modelo que sea)
+These files .xls (Figure 1) are the direct output of por GC-MS Agilent Chemstation Software. please notice that depending on the country, decimal numbers may be separated by coma or point.
 
 ![](gc_fig1.png)
 
-Las primeras 8 filas del fichero xls NO deben tener datos de los compuestos. Pueden estar vacias o contener metadata. El resto de filas a partir de 9 deben tener el mismo formato que se muestra en la imagen. La hoja que se importará es la que tiene por nombre "LibRes"
+The first eight rows of the XLS file should NOT contain compound data. The could be empty or contain metadata. The rest of the rows from position 9 onward, should have the same format as shown in the image. The imported sheet is the one obtaining the name “LibRes”.
 
-También se admiten ficheros en formato csv, usando como separador semicolon (;). En este caso el fichero debe tener cabecera y únicamente incluirá las columnas que se muestras en la figure 2.
+The system also admits TSV files separated by tab. In this case, files should have heading and will include only the columns shown in figure 2. Supported extensions (.csv or .tsv)
 
 ![](gc_fig2.png)
 
-En ambos casos las celdas vacías indican que su valor corresponde con el de la celda no vacía que esté por encima de esta.
+In both cases, empty cells indicate that the value corresponds to full cells right above.
 
-### Pipeline de ejecución
+### Pipeline
 
-La libraría está pensada para ejecutar las funciones de forma secuencial en 4 pasos.
+The library is developed to execute four functions in sequential steps. 
 
-1. Importar las muestras y normalización intra ficheros (More info in R. ```?NormalizeWithinFiles()``` ).
+1. Import file and intrafile normalization (More info in R. ```?NormalizeWithinFiles()``` ).
 
     ```r
     library( gcProfileMakeR )
     path <- paste(system.file(package = "gcProfileMakeR"), "/extdata", sep="") # or path to your files
     out1 <- NormalizeWithinFiles( path = path,  type = "xls", thr = 2 )
     ```
-    En este paso se define el tiempo de retención (RT) máximo para unificar compuestos (parameter **thr**). Se
-    pueden filtrar compuestos que no alcancen un nivel de calidad mínimo (parameters **filterLowQual** y
-    **minQuality**) así como indicar un conjunto de compuestos por su CAS para ser eliminados del análisis.
-
-2. Agrupar compuestos con similar tiempo de retención entre ficheros. Para cada grupo, se determina qué CAS es el más representativo de ese grupo (More info in R. ```?NormalizeBetweenFiles()``` )
+    
+    This step defines the maximal retention time (RT) defined to unify compounds (parameter **thr**). Compounds with low quality can be
+    filtered out (parameters **filterLowQual** y **minQuality**). Compounds known as contaminants, or defined by the researcher, can be
+    removed from the analysis by ```cas2rm```.
+    
+2. Group compounds with similar RT values between files. For each group, the most representative CAS number is determined (More info in R. ```?NormalizeBetweenFiles()``` )
 
     ```r
     out2 <- NormalizeBetweenFiles( data = out1, thr = 2, filterLowQual = 0 )
     ```
-    Toma como entrada el objeto generado en el paso anterior (```NormalizeWithinFiles```). El parámetro **thr**   
-    determina el RT máximo para agrupar compuestos de diferentes ficheros. Es este paso también se puede
-    eliminar compuestos con un valor de calidad por debajo del definido. Un valor de 0 indica no filtrar.
+    We use as input the object generated in the previous step (```NormalizeWithinFiles```). The parameter **thr** determines the maximum
+    RT to group compounds from different files. In this step we can also eliminate low quality compounds. A value of 0 means no filter.
 
-3. Determinar perfiles de emisión y compuestos no constitutivos de perfil (More info in R. ```?getGroups()``` )
+3. Determines constitutive metabolite profiles and non-constitutive profiles (More info in R. ```?getGroups()``` ).
 
     ```r
     out3 <- getGroups( data = out2, savefiles = FALSE, verbose = TRUE, 
                    qcutoff = c( 85 ), ncFreqCutoff = c( 0.3 ), pFreqCutoff = c( 0.9 ) )
     ```
     
-    Toma como entrada el objeto generado en el paso anterior (```NormalizeBetweenFiles```). Los parámetros más importantes son: 
+    It takes as input the object previously generated (```NormalizeBetweenFiles```). The most important parameters are:
     
-    * ```qcutoff``` a numerical integer value cut-off (mean quality) que determina qué compuestos serán considerados perfil y qué compuestos non-costitutive por calidad.
+    * ```qcutoff``` a numerical integer value cut-off (mean quality) determining what compounds are considered constitutive by quality and those that are non-constitutive by quality. Default value= 85.
     
-    * ```ncFreqCutoff``` a numerical float value between 0-1 indicando la frecuencia por encima del cual el compuesto se considera no constitutivo. Este valor debe ser menor que el de ```pFreqCuttoff```.
+    * ```ncFreqCutoff``` a numerical float value between 0-1 indicating a minimal frequency that establishes compounds considered as non-constitutive by frequency. This value should be lower than the value given to ```pFreqCuttoff```. Default value = 0.3.
     
-    * ```pFreqCuttoff``` a numerical float value between 0-1 indicando la frecuencia mímina para considerar a un compuesto como perfil.
+    * ```pFreqCuttoff``` a numerical float value between 0-1 indicating the minimal frequency that establishes compounds considered as constitutive profile. This value should always be higher than ```ncFreqCutoff```. Defalut value = 0.9
     
-    Definiendo *ncFreqCutoff = 0.3, pFreqCutoff = 0.9* se tendrán que los compuestos con *frecuencia > 0.9* serán perfil por frecuencia, con valores *0.3 > frecuencia > 0.9* serán non-constitutive por frecuencia, y *frecuencia < 0.3* no serán considerados.
+    Defining *ncFreqCutoff = 0.3*, *pFreqCutoff = 0.9* we obtain that compounds  > 0.9 form the constitutive profile, values 0.3 < frequency <0.9 will be non-constitutive by frequency, and those below < 0.3 are not considered.
     
     ```
     # Output of getGroups
@@ -98,7 +97,7 @@ La libraría está pensada para ejecutar las funciones de forma secuencial en 4 
     001467-36-3 ; 001667-01-2 ; 003387-41-5 ; 005989-27-5 ; 010219-75-7 ; 018172-67-3 ; 019713-73-6 ; 2000072-44-7
     ```
 
-4. Plotear los resultados (More info in R. ```?plotGroup()``` )
+4. Plot results (More info in R. ```?plotGroup()``` )
         
     ```r
     ( p <- plotGroup(data = out3, compoundType = "p") )
@@ -106,7 +105,7 @@ La libraría está pensada para ejecutar las funciones de forma secuencial en 4 
     ( ncq <- plotGroup(data = out3, compoundType = "ncq") ) 
     ```
     
-    Genera un gráfico compuesto. En la parte superior se muestra mediante un gráfico de líneas la calidad media de cada compuesto. En gráfico inferior muestra, mediante gráfico de barras, las áreas medias de cada compuesto.
+    Generate a compound graph. The upper part shows a line of average and standard deviation of compound quality, for each compound. The lower graph shows by bars the average peak area with standard deviation for each compound.
     
 ![](gc_fig3.png)
     
