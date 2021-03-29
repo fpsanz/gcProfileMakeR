@@ -47,7 +47,7 @@ NormalizeWithinFiles <- function(path, type = "xls", thr = 0.2, savefiles = FALS
   if (type=="xls"){
     filelist <- list.files(path, pattern = "(.xls)$", full.names = TRUE)
   } else if (type == "csv"){
-    filelist <- list.files(path, pattern = "(.tsv)$|(.csv)$")
+    filelist <- list.files(path, pattern = "(.tsv)$|(.csv)$", full.names = TRUE)
   } else {stop("Wrong type. Valid types are xls or csv")}
   # Check thr
   if(!is.numeric(thr) | thr<0){
