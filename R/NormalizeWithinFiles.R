@@ -47,7 +47,7 @@ NormalizeWithinFiles <- function(path, type = "xls", thr = 0.2, savefiles = FALS
   if (type=="xls"){
     filelist <- list.files(path, pattern = "(.xls)$", full.names = TRUE)
   } else if (type == "csv"){
-    filelist <- list.files(path, pattern = "(.csv)$")
+    filelist <- list.files(path, pattern = "(.tsv)$|(.csv)$")
   } else {stop("Wrong type. Valid types are xls or csv")}
   # Check thr
   if(!is.numeric(thr) | thr<0){
@@ -78,7 +78,8 @@ NormalizeWithinFiles <- function(path, type = "xls", thr = 0.2, savefiles = FALS
       kk <- readxl::read_excel(file,  sheet = "LibRes", skip = 8, col_names = TRUE)
       df<-kk[,c(1,2,4,9,10,12)]
     } else if (type == "csv"){
-      kk <- read.csv2( file, header = TRUE, sep = ";", stringsAsFactors = FALSE)
+      #kk <- read.csv2( file, header = TRUE, sep = ";", stringsAsFactors = FALSE)
+      kk <- read_delim(file,  delim = "\t", escape_double = FALSE, trim_ws = TRUE, col_names = TRUE)
       df <- kk
     }
      
